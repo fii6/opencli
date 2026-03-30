@@ -19,7 +19,7 @@ function generateId(): string {
 
 export interface DaemonCommand {
   id: string;
-  action: 'exec' | 'navigate' | 'tabs' | 'cookies' | 'screenshot' | 'close-window' | 'sessions';
+  action: 'exec' | 'navigate' | 'tabs' | 'cookies' | 'screenshot' | 'close-window' | 'sessions' | 'cdp';
   tabId?: number;
   code?: string;
   workspace?: string;
@@ -30,6 +30,8 @@ export interface DaemonCommand {
   format?: 'png' | 'jpeg';
   quality?: number;
   fullPage?: boolean;
+  cdpMethod?: string;
+  cdpParams?: Record<string, unknown>;
 }
 
 export interface DaemonResult {

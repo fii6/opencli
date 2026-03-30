@@ -5,7 +5,7 @@
  * Everything else is just JS code sent via 'exec'.
  */
 
-export type Action = 'exec' | 'navigate' | 'tabs' | 'cookies' | 'screenshot' | 'close-window' | 'sessions';
+export type Action = 'exec' | 'navigate' | 'tabs' | 'cookies' | 'screenshot' | 'close-window' | 'sessions' | 'cdp';
 
 export interface Command {
   /** Unique request ID */
@@ -32,6 +32,10 @@ export interface Command {
   quality?: number;
   /** Whether to capture full page (not just viewport) */
   fullPage?: boolean;
+  /** CDP method name for 'cdp' action (e.g. 'Accessibility.getFullAXTree') */
+  cdpMethod?: string;
+  /** CDP method params for 'cdp' action */
+  cdpParams?: Record<string, unknown>;
 }
 
 export interface Result {
